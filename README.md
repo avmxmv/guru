@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
+* Сущности реального мира: github, соцсети.
+
 * ...
