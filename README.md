@@ -1,5 +1,12 @@
 # README
 
+Сущности:
+1. Пользователь
+2. Тест
+3. Вопрос
+4. Ответ(я считаю может быть в вопросе)
+5. Результат
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
