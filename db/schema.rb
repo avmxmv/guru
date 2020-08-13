@@ -10,36 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_150306) do
+ActiveRecord::Schema.define(version: 2020_08_12_150023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answears", force: :cascade do |t|
-    t.text "correct", default: "correct_answears"
-    t.bigint "question_id", null: false
+  create_table "answer", force: :cascade do |t|
+    t.boolean "correct", default: false
+    t.integer "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_answears_on_question_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "category", null: false
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
     t.text "body", null: false
-    t.bigint "test_id", null: false
+    t.integer "test_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 0
+    t.integer "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_150306) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "answears", "questions"
+  add_foreign_key "answer", "questions"
   add_foreign_key "questions", "tests"
+  add_foreign_key "tests", "categories"
 end
