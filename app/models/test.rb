@@ -1,5 +1,6 @@
 class Test < ApplicationRecord
   def self.test_categories(category)
-    Test.where(category_id: category).order(id: :DESC)
+    category_find = Category.find_by(title: category)
+    Test.where(category_id: category_find.id).order(id: :DESC)
   end
 end
