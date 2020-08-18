@@ -13,11 +13,11 @@ categories = Category.create!([
                                 { title: 'Тест по русскому языку' }
                               ])
 
-User.create!([
-               { name: 'Владимир', age: 17 },
-               { name: 'Даниил', age: 28 },
-               { name: 'Алексей', age: 34 }
-             ])
+users = User.create!([
+                       { name: 'Владимир', age: 17 },
+                       { name: 'Даниил', age: 28 },
+                       { name: 'Алексей', age: 34 }
+                     ])
 
 tests = Test.create!([
                        { title: 'Животные', level: 1, category_id: categories[0].id },
@@ -39,4 +39,10 @@ Answer.create!([
                  { correct: false, question_id: questions[2].id },
                  { correct: true, question_id: questions[3].id },
                  { correct: true, question_id: questions[4].id }
+               ])
+
+Result.create!([
+                 { user_id: users[0].id, test_id: tests[0].id },
+                 { user_id: users[1].id, test_id: tests[1].id },
+                 { user_id: users[2].id, test_id: tests[2].id }
                ])
